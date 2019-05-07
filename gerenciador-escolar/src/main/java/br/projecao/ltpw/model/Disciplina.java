@@ -1,5 +1,5 @@
 package br.projecao.ltpw.model;
-// Generated 04/05/2019 17:43:09 by Hibernate Tools 4.3.1
+// Generated 06/05/2019 22:18:44 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -32,18 +32,16 @@ public class Disciplina  implements java.io.Serializable {
     }
 
 	
-    public Disciplina(int idDisciplina, Curso curso) {
-        this.idDisciplina = idDisciplina;
+    public Disciplina(Curso curso) {
         this.curso = curso;
     }
-    public Disciplina(int idDisciplina, Curso curso, Set<Turma> turmas) {
-       this.idDisciplina = idDisciplina;
+    public Disciplina(Curso curso, Set<Turma> turmas) {
        this.curso = curso;
        this.turmas = turmas;
     }
    
-     @Id 
-    @GeneratedValue
+     @Id @GeneratedValue
+
     
     @Column(name="idDisciplina", unique=true, nullable=false)
     public int getIdDisciplina() {

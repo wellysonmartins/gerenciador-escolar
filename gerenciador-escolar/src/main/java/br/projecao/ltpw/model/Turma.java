@@ -1,5 +1,5 @@
 package br.projecao.ltpw.model;
-// Generated 04/05/2019 17:43:09 by Hibernate Tools 4.3.1
+// Generated 06/05/2019 22:18:44 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -25,34 +25,33 @@ public class Turma  implements java.io.Serializable {
 
 
      private int idTurma;
+     private Set<Aluno> alunos = new HashSet<Aluno>(0);
      private Disciplina disciplina;
-     private Professor professor;
-     private Double nota;
      private String idAnoSemestre;
      private String nome;
-     private Set<Aluno> alunos = new HashSet<Aluno>(0);
+     private Double nota;
+     private Professor professor;
 
     public Turma() {
     }
 
 	
-    public Turma(int idTurma, Disciplina disciplina, Professor professor) {
-        this.idTurma = idTurma;
+    public Turma(Disciplina disciplina, Professor professor) {
         this.disciplina = disciplina;
         this.professor = professor;
     }
-    public Turma(int idTurma, Disciplina disciplina, Professor professor, Double nota, String idAnoSemestre, String nome, Set<Aluno> alunos) {
-       this.idTurma = idTurma;
+    public Turma(Set<Aluno> alunos, Disciplina disciplina, String idAnoSemestre, String nome, Double nota, Professor professor) {
+       this.alunos = alunos;
        this.disciplina = disciplina;
-       this.professor = professor;
-       this.nota = nota;
        this.idAnoSemestre = idAnoSemestre;
        this.nome = nome;
-       this.alunos = alunos;
+       this.nota = nota;
+       this.professor = professor;
     }
    
-    @Id 
-    @GeneratedValue
+     @Id @GeneratedValue
+
+    
     @Column(name="idTurma", unique=true, nullable=false)
     public int getIdTurma() {
         return this.idTurma;
@@ -60,6 +59,15 @@ public class Turma  implements java.io.Serializable {
     
     public void setIdTurma(int idTurma) {
         this.idTurma = idTurma;
+    }
+
+@ManyToMany(fetch=FetchType.LAZY, mappedBy="turmas")
+    public Set<Aluno> getAlunos() {
+        return this.alunos;
+    }
+    
+    public void setAlunos(Set<Aluno> alunos) {
+        this.alunos = alunos;
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
@@ -70,26 +78,6 @@ public class Turma  implements java.io.Serializable {
     
     public void setDisciplina(Disciplina disciplina) {
         this.disciplina = disciplina;
-    }
-
-@ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="idProfessor", nullable=false)
-    public Professor getProfessor() {
-        return this.professor;
-    }
-    
-    public void setProfessor(Professor professor) {
-        this.professor = professor;
-    }
-
-    
-    @Column(name="nota", precision=22, scale=0)
-    public Double getNota() {
-        return this.nota;
-    }
-    
-    public void setNota(Double nota) {
-        this.nota = nota;
     }
 
     
@@ -112,13 +100,24 @@ public class Turma  implements java.io.Serializable {
         this.nome = nome;
     }
 
-@ManyToMany(fetch=FetchType.LAZY, mappedBy="turmas")
-    public Set<Aluno> getAlunos() {
-        return this.alunos;
+    
+    @Column(name="nota", precision=22, scale=0)
+    public Double getNota() {
+        return this.nota;
     }
     
-    public void setAlunos(Set<Aluno> alunos) {
-        this.alunos = alunos;
+    public void setNota(Double nota) {
+        this.nota = nota;
+    }
+
+@ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="idProfessor", nullable=false)
+    public Professor getProfessor() {
+        return this.professor;
+    }
+    
+    public void setProfessor(Professor professor) {
+        this.professor = professor;
     }
 
 

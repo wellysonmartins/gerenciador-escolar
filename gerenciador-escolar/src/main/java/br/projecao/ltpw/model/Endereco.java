@@ -1,5 +1,5 @@
 package br.projecao.ltpw.model;
-// Generated 04/05/2019 17:43:09 by Hibernate Tools 4.3.1
+// Generated 06/05/2019 22:18:44 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -25,30 +25,25 @@ public class Endereco  implements java.io.Serializable {
 
 
      private int idEndereco;
-     private String logradodouro;
-     private String complemento;
      private String bairro;
      private String cep;
+     private String complemento;
+     private String logradodouro;
      private Set<Pessoa> pessoas = new HashSet<Pessoa>(0);
 
     public Endereco() {
     }
 
-	
-    public Endereco(int idEndereco) {
-        this.idEndereco = idEndereco;
-    }
-    public Endereco(int idEndereco, String logradodouro, String complemento, String bairro, String cep, Set<Pessoa> pessoas) {
-       this.idEndereco = idEndereco;
-       this.logradodouro = logradodouro;
-       this.complemento = complemento;
+    public Endereco(String bairro, String cep, String complemento, String logradodouro, Set<Pessoa> pessoas) {
        this.bairro = bairro;
        this.cep = cep;
+       this.complemento = complemento;
+       this.logradodouro = logradodouro;
        this.pessoas = pessoas;
     }
    
-     @Id 
-     @GeneratedValue
+     @Id @GeneratedValue
+
     
     @Column(name="idEndereco", unique=true, nullable=false)
     public int getIdEndereco() {
@@ -57,26 +52,6 @@ public class Endereco  implements java.io.Serializable {
     
     public void setIdEndereco(int idEndereco) {
         this.idEndereco = idEndereco;
-    }
-
-    
-    @Column(name="logradodouro", length=100)
-    public String getLogradodouro() {
-        return this.logradodouro;
-    }
-    
-    public void setLogradodouro(String logradodouro) {
-        this.logradodouro = logradodouro;
-    }
-
-    
-    @Column(name="complemento", length=45)
-    public String getComplemento() {
-        return this.complemento;
-    }
-    
-    public void setComplemento(String complemento) {
-        this.complemento = complemento;
     }
 
     
@@ -97,6 +72,26 @@ public class Endereco  implements java.io.Serializable {
     
     public void setCep(String cep) {
         this.cep = cep;
+    }
+
+    
+    @Column(name="complemento", length=45)
+    public String getComplemento() {
+        return this.complemento;
+    }
+    
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
+    }
+
+    
+    @Column(name="logradodouro", length=100)
+    public String getLogradodouro() {
+        return this.logradodouro;
+    }
+    
+    public void setLogradodouro(String logradodouro) {
+        this.logradodouro = logradodouro;
     }
 
 @ManyToMany(fetch=FetchType.LAZY)

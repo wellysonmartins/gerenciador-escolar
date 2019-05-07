@@ -1,5 +1,5 @@
 package br.projecao.ltpw.model;
-// Generated 04/05/2019 17:43:09 by Hibernate Tools 4.3.1
+// Generated 06/05/2019 22:18:44 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -33,20 +33,18 @@ public class Professor  implements java.io.Serializable {
     }
 
 	
-    public Professor(int idProfessor, Pessoa pessoa) {
-        this.idProfessor = idProfessor;
+    public Professor(Pessoa pessoa) {
         this.pessoa = pessoa;
     }
-    public Professor(int idProfessor, Pessoa pessoa, Double salario, Set<Turma> turmas) {
-       this.idProfessor = idProfessor;
+    public Professor(Pessoa pessoa, Double salario, Set<Turma> turmas) {
        this.pessoa = pessoa;
        this.salario = salario;
        this.turmas = turmas;
     }
    
-     @Id 
+     @Id @GeneratedValue
 
-    @GeneratedValue
+    
     @Column(name="idProfessor", unique=true, nullable=false)
     public int getIdProfessor() {
         return this.idProfessor;

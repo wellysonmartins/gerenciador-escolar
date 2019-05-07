@@ -1,15 +1,11 @@
 package br.projecao.ltpw.model;
-// Generated 04/05/2019 17:43:09 by Hibernate Tools 4.3.1
+// Generated 06/05/2019 22:18:44 by Hibernate Tools 4.3.1
 
 
-import java.util.HashSet;
-import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -25,18 +21,16 @@ public class Genero  implements java.io.Serializable {
      private int idGenero;
      private String descricao;
 
-
     public Genero() {
     }
 
-	
-    public Genero(int idGenero, String descricao) {
-        this.idGenero = idGenero;
-        this.descricao = descricao;
+    public Genero(String descricao) {
+       this.descricao = descricao;
     }
+   
+     @Id @GeneratedValue
 
-    @Id   
-    @GeneratedValue
+    
     @Column(name="idGenero", unique=true, nullable=false)
     public int getIdGenero() {
         return this.idGenero;
@@ -55,7 +49,6 @@ public class Genero  implements java.io.Serializable {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
-
 
 
 

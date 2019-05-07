@@ -1,5 +1,5 @@
 package br.projecao.ltpw.model;
-// Generated 04/05/2019 17:43:09 by Hibernate Tools 4.3.1
+// Generated 06/05/2019 22:18:44 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -26,26 +26,24 @@ public class Curso  implements java.io.Serializable {
 
      private int idCurso;
      private Departamento departamento;
-     private String nome;
      private Set<Disciplina> disciplinas = new HashSet<Disciplina>(0);
+     private String nome;
 
     public Curso() {
     }
 
 	
-    public Curso(int idCurso, Departamento departamento) {
-        this.idCurso = idCurso;
+    public Curso(Departamento departamento) {
         this.departamento = departamento;
     }
-    public Curso(int idCurso, Departamento departamento, String nome, Set<Disciplina> disciplinas) {
-       this.idCurso = idCurso;
+    public Curso(Departamento departamento, Set<Disciplina> disciplinas, String nome) {
        this.departamento = departamento;
-       this.nome = nome;
        this.disciplinas = disciplinas;
+       this.nome = nome;
     }
    
-     @Id 
-    @GeneratedValue
+     @Id @GeneratedValue
+
     
     @Column(name="idCurso", unique=true, nullable=false)
     public int getIdCurso() {
@@ -66,6 +64,15 @@ public class Curso  implements java.io.Serializable {
         this.departamento = departamento;
     }
 
+@OneToMany(fetch=FetchType.LAZY, mappedBy="curso")
+    public Set<Disciplina> getDisciplinas() {
+        return this.disciplinas;
+    }
+    
+    public void setDisciplinas(Set<Disciplina> disciplinas) {
+        this.disciplinas = disciplinas;
+    }
+
     
     @Column(name="nome", length=45)
     public String getNome() {
@@ -74,15 +81,6 @@ public class Curso  implements java.io.Serializable {
     
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-@OneToMany(fetch=FetchType.LAZY, mappedBy="curso")
-    public Set<Disciplina> getDisciplinas() {
-        return this.disciplinas;
-    }
-    
-    public void setDisciplinas(Set<Disciplina> disciplinas) {
-        this.disciplinas = disciplinas;
     }
 
 

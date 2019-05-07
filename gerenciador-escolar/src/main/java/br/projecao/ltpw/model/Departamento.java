@@ -1,5 +1,5 @@
 package br.projecao.ltpw.model;
-// Generated 04/05/2019 17:43:09 by Hibernate Tools 4.3.1
+// Generated 06/05/2019 22:18:44 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -23,24 +23,19 @@ public class Departamento  implements java.io.Serializable {
 
 
      private int idDepartamento;
-     private String nome;
      private Set<Curso> cursos = new HashSet<Curso>(0);
+     private String nome;
 
     public Departamento() {
     }
 
-	
-    public Departamento(int idDepartamento) {
-        this.idDepartamento = idDepartamento;
-    }
-    public Departamento(int idDepartamento, String nome, Set<Curso> cursos) {
-       this.idDepartamento = idDepartamento;
-       this.nome = nome;
+    public Departamento(Set<Curso> cursos, String nome) {
        this.cursos = cursos;
+       this.nome = nome;
     }
    
-     @Id 
-    @GeneratedValue
+     @Id @GeneratedValue
+
     
     @Column(name="idDepartamento", unique=true, nullable=false)
     public int getIdDepartamento() {
@@ -51,6 +46,15 @@ public class Departamento  implements java.io.Serializable {
         this.idDepartamento = idDepartamento;
     }
 
+@OneToMany(fetch=FetchType.LAZY, mappedBy="departamento")
+    public Set<Curso> getCursos() {
+        return this.cursos;
+    }
+    
+    public void setCursos(Set<Curso> cursos) {
+        this.cursos = cursos;
+    }
+
     
     @Column(name="nome", length=45)
     public String getNome() {
@@ -59,15 +63,6 @@ public class Departamento  implements java.io.Serializable {
     
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-@OneToMany(fetch=FetchType.LAZY, mappedBy="departamento")
-    public Set<Curso> getCursos() {
-        return this.cursos;
-    }
-    
-    public void setCursos(Set<Curso> cursos) {
-        this.cursos = cursos;
     }
 
 
