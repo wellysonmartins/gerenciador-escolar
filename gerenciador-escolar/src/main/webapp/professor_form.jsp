@@ -49,7 +49,7 @@
                 
                 
         <h2>&nbsp;Cadastro de Professor</h2>
-        <p>&nbsp;&nbsp;&nbsp;Formulário de cadastro de novos alunos no sistema</p> 
+        <p>&nbsp;&nbsp;&nbsp;Formulário de cadastro de novos professores no sistema</p> 
             </div>
         <form action="AlunoSvl" method="post">
             
