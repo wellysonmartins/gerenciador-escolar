@@ -32,7 +32,7 @@
           <div class="container">
             <div class="row">
    
-                <div class="col text-right"> <a class="btn btn-sm" style="background-color: green; color: white" href="aluno_lista.jsp" role="button">Listar Alunos</a> &nbsp;</div>
+                <div class="col text-right"> <a class="btn btn-sm" style="background-color: green; color: white" href="aluno_lista.jsp" role="button">Listar Professores</a> &nbsp;</div>
                 <br>
             </div>
               
