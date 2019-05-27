@@ -5,6 +5,7 @@
  */
 package br.projecao.ltpw.dao;
 
+import javax.faces.context.FacesContext;
 
 import br.projecao.ltpw.model.Professor;
 import br.projecao.ltpw.util.HibernateUtil;
@@ -38,16 +39,15 @@ public class ProfessorDAO {
      * Adiciona um novo aluno na base de dados
      **/
      
-    public Professor salvaAluno(Professor alunoObj) {        
+    public Professor salvaProfessor(Professor professorObj) {        
         try {
             sessionObj = HibernateUtil.getSessionFactory().openSession();
             transObj = sessionObj.beginTransaction();
-            Object professorObj = null;
             
             //sessionObj.save(alunoObj);
             sessionObj.saveOrUpdate(professorObj);
             
-            System.out.println("Professor salvo com Id: " + alunoObj.getIdProfessor());
+            System.out.println("Professor salvo com Id: " + professorObj.getIdProfessor());
  
         } catch (Exception exceptionObj) {
             exceptionObj.printStackTrace();
@@ -57,7 +57,7 @@ public class ProfessorDAO {
             
         }
         
-        return alunoObj;
+        return professorObj;
     }
     
     public Professor obterProfessorPorChave(Professor pProfessor){
@@ -66,7 +66,7 @@ public class ProfessorDAO {
           try {
                 Query query = sessionObj.createQuery ("from Professor where idProfessor = " + pProfessor.getIdProfessor());
                 lProfessor = (Professor)query.uniqueResult();
-                 System.out.print("==================ID PROFESSOR===============================");
+                 System.out.print("==================ID PESSOA===============================");
                 System.out.print(lProfessor.getPessoa().getIdPessoa());
                 
                
@@ -78,19 +78,19 @@ public class ProfessorDAO {
               return lProfessor;
         }
     
-      public List<Professor> obterTodosOsProfessor(){
+      public List<Professor> obterTodosOsProfessores(){
           sessionObj = HibernateUtil.getSessionFactory().openSession();
-          List<Professor> lProfessor = null;
+          List<Professor> lProfessores = null;
           try {
-                Query query = sessionObj.createQuery ("from Professor");
-                lProfessor = query.list();
+                Query query = sessionObj.createQuery ("from professor");
+                lProfessores = query.list();
                 
                
             } catch (Exception e) {
                 e.printStackTrace();
             }
               sessionObj.close();
-              return lProfessor;
+              return lProfessores;
         }
       
       
@@ -116,4 +116,3 @@ public class ProfessorDAO {
        }
     
 }
-

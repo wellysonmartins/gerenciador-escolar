@@ -16,8 +16,8 @@
    <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Professor<span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="#">Novo Professor</a></li>
-          <li><a href="#">Lista de Professores</a></li>
+          <li><a href="professor_form.jsp">Novo Professor</a></li>
+          <li><a href="professor_lista.jsp">Lista de Professores</a></li>
         </ul>
     </li> 
 
