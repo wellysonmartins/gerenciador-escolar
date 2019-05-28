@@ -28,13 +28,13 @@ public class Professor  implements java.io.Serializable {
 
      private int idProfessor;
      private Pessoa pessoa;
-     private Integer salario;
+     private Double salario;
      private Set<Turma> turmas = new HashSet<Turma>(0);
 
     public Professor() {
     }
 
-    public Professor(Pessoa pessoa, Integer semestre, Set<Turma> turmas) {
+    public Professor(Pessoa pessoa, Double salario, Set<Turma> turmas) {
        this.pessoa = pessoa;
        this.salario = salario;
        this.turmas = turmas;
@@ -64,11 +64,11 @@ public class Professor  implements java.io.Serializable {
 
     
     @Column(name="salario")
-    public Integer getSalario() {
+    public Double getSalario() {
         return this.salario;
     }
     
-    public void setSalario(Integer salario) {
+    public void setSalario(Double salario) {
         this.salario = salario;
     }
 

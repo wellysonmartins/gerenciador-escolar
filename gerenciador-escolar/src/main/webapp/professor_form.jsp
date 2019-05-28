@@ -94,8 +94,8 @@
               </div>
 
              <div class="form-group col-md-3">
-                <label for="semestre">Salário</label>
-                <input type="text" class="form-control" id="semestre" name="semestre" value="${professor.semestre}" required>
+                <label for="salario">Salário</label>
+                <input type="text" class="form-control" id="salario" name="salario" value="${professor.salario}" required>
               </div>
 
             </div>   

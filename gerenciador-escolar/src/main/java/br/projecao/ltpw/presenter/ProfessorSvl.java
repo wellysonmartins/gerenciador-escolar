@@ -132,13 +132,13 @@ public class ProfessorSvl extends HttpServlet {
         Professor pProfessor = new Professor();
         
        
-        //Trata erro no tipo de dados do semestre
+        //Trata erro no tipo de dados do salário
         try{
-            pProfessor.setSalario(Integer.parseInt(request.getParameter("salario")));
+            pProfessor.setSalario(Double.parseDouble(request.getParameter("salario")));
         }catch(Exception ex){
             ex.printStackTrace();
             
-            request.setAttribute("msg_error", "O campo semestre deve possuir um valor numérico");
+            request.setAttribute("msg_error", "O campo salario deve possuir um valor numérico");
             request.getRequestDispatcher("professor_form.jsp").forward(request, response); 
         
         }
@@ -184,7 +184,7 @@ public class ProfessorSvl extends HttpServlet {
             pProfessor.getPessoa().setDataIngresso(sdf.parse(request.getParameter("data_ingresso")));
             pProfessor.getPessoa().setDataNascimento(sdf.parse(request.getParameter("data_nascimento")));
         } catch (ParseException ex) {
-            Logger.getLogger(AlunoSvl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ProfessorSvl.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         
