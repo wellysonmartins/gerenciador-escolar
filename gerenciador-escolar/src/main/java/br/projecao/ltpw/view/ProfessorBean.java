@@ -5,8 +5,10 @@
  */
 package br.projecao.ltpw.view;
 
+import br.projecao.ltpw.model.Aluno;
 import br.projecao.ltpw.model.Genero;
 import br.projecao.ltpw.model.Professor;
+import br.projecao.ltpw.presenter.AlunoSvl;
 import br.projecao.ltpw.presenter.GeneroSvl;
 import br.projecao.ltpw.presenter.ProfessorSvl;
 import java.io.Serializable;
@@ -18,14 +20,22 @@ import java.util.List;
  */
 public class ProfessorBean implements Serializable{
     
-       
+    public ProfessorBean(){
+        genero = GeneroSvl.obterTodosGeneros();
+    
+    }
     
     
+    private List<Genero> genero;
     private List<Professor> professor;
 
-    
+    public List<Genero> getGenero() {
+        return genero;
+    }
 
-    
+    public void setGenero(List<Genero> genero) {
+        this.genero = genero;
+    }
 
     /**
      * @return the professor

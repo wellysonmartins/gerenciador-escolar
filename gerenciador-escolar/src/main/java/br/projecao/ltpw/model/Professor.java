@@ -28,7 +28,7 @@ public class Professor  implements java.io.Serializable {
 
      private int idProfessor;
      private Pessoa pessoa;
-     private Integer semestre;
+     private Integer salario;
      private Set<Turma> turmas = new HashSet<Turma>(0);
 
     public Professor() {
@@ -36,7 +36,7 @@ public class Professor  implements java.io.Serializable {
 
     public Professor(Pessoa pessoa, Integer semestre, Set<Turma> turmas) {
        this.pessoa = pessoa;
-       this.semestre = semestre;
+       this.salario = salario;
        this.turmas = turmas;
     }
    
@@ -63,13 +63,13 @@ public class Professor  implements java.io.Serializable {
     }
 
     
-    @Column(name="semestre")
-    public Integer getSemestre() {
-        return this.semestre;
+    @Column(name="salario")
+    public Integer getSalario() {
+        return this.salario;
     }
     
-    public void setSemestre(Integer semestre) {
-        this.semestre = semestre;
+    public void setSalario(Integer salario) {
+        this.salario = salario;
     }
 
 @ManyToMany(fetch=FetchType.LAZY)

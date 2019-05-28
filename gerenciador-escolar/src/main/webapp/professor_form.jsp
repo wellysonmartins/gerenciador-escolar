@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<jsp:useBean id="alunoBean" class="br.projecao.ltpw.view.AlunoBean" scope="session" />
+<jsp:useBean id="professorBean" class="br.projecao.ltpw.view.ProfessorBean" scope="session" />
  
  
 <!DOCTYPE html>
@@ -32,7 +32,7 @@
           <div class="container">
             <div class="row">
    
-                <div class="col text-right"> <a class="btn btn-sm" style="background-color: green; color: white" href="aluno_lista.jsp" role="button">Listar Professores</a> &nbsp;</div>
+                <div class="col text-right"> <a class="btn btn-sm" style="background-color: green; color: white" href="professor_lista.jsp" role="button">Listar Professores</a> &nbsp;</div>
                 <br>
             </div>
               
@@ -51,9 +51,9 @@
         <h2>&nbsp;Cadastro de Professor</h2>
         <p>&nbsp;&nbsp;&nbsp;Formulário de cadastro de novos professores no sistema</p> 
             </div>
-        <form action="AlunoSvl" method="post">
+        <form action="ProfessorSvl" method="post">
             
-             <input type="hidden" class="form-control" id="id_professor" name="id_aluno" value="${professor.idProfessor}">
+             <input type="hidden" class="form-control" id="id_professor" name="id_professor" value="${professor.idProfessor}">
           
             <div class="form-row">
               <div class="form-group col-md-6">
@@ -65,17 +65,59 @@
                 <input type="text" class="form-control" id="sobrenome" name="sobrenome" value = "${professor.pessoa.sobrenome}" required>
               </div>
             </div>
-            
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="data_nascimento">Data de Nascimento</label>
+                <input type="date" class="form-control" id="data_nascimento" name="data_nascimento" value="${professor.pessoa.dataNascimento}" required>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="genero">Gênero:</label>
+                <select class="form-control" id="genero" name="genero" required>
+                    <option selected>Selecione</option>
+                    <c:forEach items="${professorBean.genero}" var="genero">
+                        <option value="${genero.idGenero}" <c:if test = "${genero.idGenero == professor.pessoa.genero.idGenero}">selected</c:if>>${genero.descricao}</option>
+                        
+                    </c:forEach>
+                  </select>
+              </div>
+            </div>
             
           
           <div class="form-row">
               <div class="form-group col-md-6">
-                <label for="matricula">Salário</label>
+                <label for="matricula">Matrícula</label>
                 <input type="text" class="form-control" id="matricula" name="matricula" value="${professor.pessoa.matricula}" required>
               </div>
-          
+             <div class="form-group col-md-3">
+                <label for="data_ingresso">Data de Ingresso</label>
+                <input type="date" class="form-control" id="data_ingresso" name="data_ingresso"  value="${professor.pessoa.dataIngresso}" required>
+              </div>
+
+             <div class="form-group col-md-3">
+                <label for="semestre">Salário</label>
+                <input type="text" class="form-control" id="semestre" name="semestre" value="${professor.semestre}" required>
+              </div>
+
+            </div>   
  
+            <div class="form-row">       
+              <div class="form-group col-md-12">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" value="${professor.pessoa.email}" required>
+              </div>
+            </div>
           
+          
+           <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="login">Login</label>
+                <input type="text" class="form-control" id="login" name="login" value="${professor.pessoa.usuario}"  required>
+              </div>
+              <div class="form-group col-md-6">
+                 <label for="pwd">Senha:</label>
+                <input type="password" class="form-control" id="pwd" name="pwd" >
+              </div>
+              </div>
           
           <div class="form-row">       
                           <div class="form-group col-md-12">

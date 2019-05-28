@@ -5,11 +5,10 @@
 --%>
 
 <%@page import="br.projecao.ltpw.model.Aluno"%>
-<%@page import="br.projecao.ltpw.model.Professor"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<jsp:useBean id="professorBean" class="br.projecao.ltpw.view.ProfessorBean" scope="session" />
+<jsp:useBean id="alunoBean" class="br.projecao.ltpw.view.AlunoBean" scope="session" />
 <!DOCTYPE html>
 <html>
     <head>
@@ -26,7 +25,7 @@
         <div class="container">
             <div class="row">
    
-                <div class="col text-right"> <a class="btn btn-sm" style="background-color: green; color: white" href="professor_form.jsp" role="button">Novo Professor</a> &nbsp;</div>
+                <div class="col text-right"> <a class="btn btn-sm" style="background-color: green; color: white" href="aluno_form.jsp" role="button">Novo Aluno</a> &nbsp;</div>
              </div>
   <h2>Professores</h2>
   <p>Lista de professores cadastrados no sistema</p>   
@@ -50,7 +49,7 @@
       <tr>
         <th>Nome</th>
         <th>Sobrenome</th>
-        <th>Salário</th>
+        <th>Email</th>
         <th>Alterar/Remover</th>
       </tr>
     </thead>
@@ -58,15 +57,15 @@
     
 
         
-    <c:forEach items="${professorBean.professor}" var="professor">
+    <c:forEach items="${professorBean.aluno}" var="aluno">
 
    
       <tr>
         <td>${professor.pessoa.nome}</td>
         <td>${professor.pessoa.sobrenome}</td>
         <td>${professor.pessoa.email}</td>
-        <td><a href="ProfessorSvl?op=1&id=${professor.idProfessor}"><i class='far fa-edit' style='color:black'></i></a> &nbsp;  
-            <a href="ProfessorSvl?op=2&id=${professor.idProfessor}"><i class='fas fa-trash' style='color:black'></i></a> 
+        <td><a href="AlunoSvl?op=1&id=${professor.idProfessor}"><i class='far fa-edit' style='color:black'></i></a> &nbsp;  
+            <a href="AlunoSvl?op=2&id=${professor.idProfessor}"><i class='fas fa-trash' style='color:black'></i></a> 
         
         </td>
          

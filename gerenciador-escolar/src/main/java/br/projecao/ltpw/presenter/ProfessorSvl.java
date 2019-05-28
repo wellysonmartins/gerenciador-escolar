@@ -48,7 +48,7 @@ public class ProfessorSvl extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet AlunoSvl</title>");            
+            out.println("<title>Servlet ProfessorSvl</title>");            
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet ProfessorSvl at " + request.getContextPath() + "</h1>");
@@ -134,7 +134,7 @@ public class ProfessorSvl extends HttpServlet {
        
         //Trata erro no tipo de dados do semestre
         try{
-            pProfessor.setSemestre(Integer.parseInt(request.getParameter("semestre")));
+            pProfessor.setSalario(Integer.parseInt(request.getParameter("salario")));
         }catch(Exception ex){
             ex.printStackTrace();
             
