@@ -5,10 +5,8 @@
  */
 package br.projecao.ltpw.view;
 
-import br.projecao.ltpw.model.Aluno;
 import br.projecao.ltpw.model.Genero;
 import br.projecao.ltpw.model.Professor;
-import br.projecao.ltpw.presenter.AlunoSvl;
 import br.projecao.ltpw.presenter.GeneroSvl;
 import br.projecao.ltpw.presenter.ProfessorSvl;
 import java.io.Serializable;

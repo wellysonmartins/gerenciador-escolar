@@ -36,26 +36,25 @@ public class ProfessorDAO {
     private static Session sessionObj;
     
     /**
-     * Adiciona um novo aluno na base de dados
+     * Adiciona um novo professor na base de dados
      **/
      
     public Professor salvaProfessor(Professor professorObj) {        
-        try {
+        
             sessionObj = HibernateUtil.getSessionFactory().openSession();
             transObj = sessionObj.beginTransaction();
             
-            //sessionObj.save(alunoObj);
+            //sessionObj.save(professorObj);
             sessionObj.saveOrUpdate(professorObj);
             
             System.out.println("Professor salvo com Id: " + professorObj.getIdProfessor());
  
-        } catch (Exception exceptionObj) {
-            exceptionObj.printStackTrace();
-        } finally {
+        
+        
             transObj.commit();
             sessionObj.close();
             
-        }
+        
         
         return professorObj;
     }

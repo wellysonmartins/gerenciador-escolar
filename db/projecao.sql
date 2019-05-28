@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 5.7.26, for Linux (x86_64)
+﻿-- MySQL dump 10.13  Distrib 5.7.26, for Linux (x86_64)
 --
 -- Host: localhost    Database: projecao
 -- ------------------------------------------------------
@@ -262,7 +262,7 @@ DROP TABLE IF EXISTS `Professor`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Professor` (
-  `idProfessor` int(11) NOT NULL,
+  `idProfessor` int(11) NOT NULL AUTO_INCREMENT,
   `idPessoa` int(11) NOT NULL,
   `salario` double DEFAULT NULL,
   PRIMARY KEY (`idProfessor`),

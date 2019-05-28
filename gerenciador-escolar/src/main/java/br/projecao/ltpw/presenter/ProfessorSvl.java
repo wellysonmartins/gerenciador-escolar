@@ -5,10 +5,10 @@
  */
 package br.projecao.ltpw.presenter;
 
-import br.projecao.ltpw.dao.AlunoDAO;
+
 import br.projecao.ltpw.dao.GeneroDAO;
 import br.projecao.ltpw.dao.ProfessorDAO;
-import br.projecao.ltpw.model.Aluno;
+import br.projecao.ltpw.dao.AlunoDAO;
 import br.projecao.ltpw.model.Genero;
 import br.projecao.ltpw.model.Pessoa;
 import br.projecao.ltpw.model.Professor;
