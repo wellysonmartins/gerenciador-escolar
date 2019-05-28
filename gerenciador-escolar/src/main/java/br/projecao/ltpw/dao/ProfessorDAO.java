@@ -82,7 +82,7 @@ public class ProfessorDAO {
           sessionObj = HibernateUtil.getSessionFactory().openSession();
           List<Professor> lProfessores = null;
           try {
-                Query query = sessionObj.createQuery ("from professor");
+                Query query = sessionObj.createQuery ("from Professor");
                 lProfessores = query.list();
                 
                
