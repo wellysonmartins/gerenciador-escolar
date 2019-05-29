@@ -42,6 +42,7 @@ public class Pessoa  implements java.io.Serializable {
      private String sobrenome;
      private String usuario;
      private Aluno aluno;
+     private Professor professor;
 
     public Pessoa() {
     }
@@ -181,6 +182,15 @@ public class Pessoa  implements java.io.Serializable {
     
     public void setAluno(Aluno aluno) {
         this.aluno = aluno;
+    }
+    
+@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="pessoa")
+    public Professor getProfessor() {
+        return this.professor;
+    }
+    
+    public void setProfessor(Professor professor) {
+        this.professor = professor;
     }
 
 

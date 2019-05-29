@@ -75,13 +75,7 @@ public class Professor  implements java.io.Serializable {
         this.salario = salario;
     }
 
-@ManyToMany(fetch=FetchType.LAZY)
-    @JoinTable(name="Professor_Turma", catalog="projecao", joinColumns = { 
-        @JoinColumn(name="idProfessor", nullable=false, updatable=false) }, inverseJoinColumns = { 
-        @JoinColumn(name="idTurma", nullable=false, updatable=false) })
-    public Set<Turma> getTurmas() {
-        return this.turmas;
-    }
+
     
     public void setTurmas(Set<Turma> turmas) {
         this.turmas = turmas;
