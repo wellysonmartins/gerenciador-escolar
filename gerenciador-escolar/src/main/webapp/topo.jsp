@@ -24,9 +24,8 @@
     <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Turma<span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="#">Nova Turma</a></li>
-          <li><a href="#">Lista de Turmas</a></li>
-          <li><a href="#">Associar Alunos?</a></li>
+          <li><a href="turma_form.jsp">Nova Turma</a></li>
+          <li><a href="turma_lista.jsp">Lista de Turmas</a></li>
         </ul>
     </li> 
 
